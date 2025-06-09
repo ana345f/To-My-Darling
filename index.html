@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #f7bde3, #dd7ab0);
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    h1 {
+      color: #961f1f;
+      text-align: center;
+      margin-top: 20px;
+      text-shadow: 1px 1px 5px #f8f1e0;
+    }
+
+    .book {
+      position: relative;
+      width: 1000px;
+      height: 650px;
+      perspective: 2000px;
+      margin: 30px auto 0;
+    }
+
+    .page {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      transform-origin: left center;
+      transition: transform 1s ease-in-out;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    .page.flipped {
+      transform: rotateY(-180deg);
+    }
+
+    .cover {
+      background: url('https://www.transparenttextures.com/patterns/wood-pattern.png'), #6e1935;
+      background-size: cover;
+      color: gold;
+      flex-direction: column;
+      text-align: center;
+      font-family: 'Cinzel', serif;
+      border: 5px solid gold;
+    }
+
+    .cover h2 {
+      font-size: 3em;
+      margin: 0;
+      text-shadow: 1px 1px 3px black;
+    }
+
+    .cover p {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+
+    .back-cover {
+      background: linear-gradient(to bottom, #bf6e8d, #f7d0df);
+      color: #4b2e13;
+      font-family: 'Cinzel', serif;
+      text-align: center;
+    }
+
+    .page img {
+      max-width: 110%;
+      max-height: 80%;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .caption {
+      margin-top: 15px;
+      font-size: 1.3em;
+      text-align: center;
+      color: #333;
+      font-style: italic;
+    }
+
+    .controls {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    button {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 40px;
+  background: linear-gradient(to right, #ff8fab, #ff5d8f);
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 0 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+
+    .audio-controls {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 0.9em;
+      backdrop-filter: blur(5px);
+    }
+
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: #f54873;
+      transform: rotate(45deg);
+      animation: float 6s linear infinite;
+      opacity: 0.6;
+    }
+
+    .heart::before, .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #f01149;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(1) rotate(45deg);
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.2) rotate(45deg);
+        opacity: 0.8;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  
+<audio id="love-audio" autoplay muted loop>
+  <source src="musica/I Wanna Be Yours.mp3" type="audio/mp3" />
+</audio>
+
+  <div class="book" id="book">
+    <!-- CAPA -->
+    <div class="page cover">
+      <div>
+        <h2>Nosso Livro de Amor 💖</h2>
+        <p>Recordações que viverão para sempre no seu coração.</p>
+      </div>
+    </div>
+
+    <!-- Páginas com imagens e frases -->
+    <div class="page">
+      <img src="img/img1.jpeg" alt="foto 1" />
+      <div class="caption">"Te encontrei e o mundo ficou mais bonito."</div>
+    </div>
+    <div class="page">
+      <img src="img/img2.jpeg" alt="foto 2" />
+      <div class="caption">"Com você, cada dia é um novo capítulo de amor."</div>
+    </div>
+    <div class="page">
+      <img src="img/img3.jpeg" alt="foto 3" />
+      <div class="caption">"Seu sorriso é meu lugar favorito."</div>
+    </div>
+    <div class="page">
+      <img src="img/img4.jpeg" alt="foto 4" />
+      <div class="caption">"Em teus braços, encontrei meu lar."</div>
+    </div>
+    <div class="page">
+      <img src="img/img5.jpeg" alt="foto 5" />
+      <div class="caption">"Nosso amor é minha história favorita."</div>
+    </div>
+        <div class="page">
+      <img src="img/img6.jpeg" alt="foto 6" />
+      <div class="caption">"Me perdi nas ondas dos teus cabelos."</div>
+    </div>
+            <div class="page">
+      <img src="img/img7.jpeg" alt="foto 7" />
+      <div class="caption">"Sua beleza faz meu coração acelerar."</div>
+    </div>
+
+    <!-- CONTRACAPA -->
+    <div class="page back-cover">
+      <div>
+        <h2> The end 💌</h2>
+        <p>Mas o amor... continua crescendo a cada página da nossa vida.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button onclick="prevPage()">⬅️ Voltar</button>
+    <button onclick="nextPage()">Avançar ➡️</button>
+  </div>
+
+  <!-- Corações flutuando -->
+  <script>
+    function createHearts() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.animationDuration = (3 + Math.random() * 3) + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHearts, 300);
+  </script>
+
+  <!-- Livro e Música -->
+  <script>
+    const pages = document.querySelectorAll(".page");
+    let currentPage = -1;
+
+    pages.forEach((page, i) => {
+      page.style.zIndex = pages.length - i;
+    });
+
+    function updateBook() {
+      pages.forEach((page, index) => {
+        if (index <= currentPage) {
+          page.classList.add("flipped");
+        } else {
+          page.classList.remove("flipped");
+        }
+      });
+    }
+
+    function nextPage() {
+      if (currentPage < pages.length - 1) {
+        currentPage++;
+        updateBook();
+      }
+    }
+
+    function prevPage() {
+      if (currentPage >= 0) {
+        currentPage--;
+        updateBook();
+      }
+    }
+
+    
+  const audio = document.getElementById("love-audio");
+  let isPlaying = false;
+
+  function toggleAudio() {
+    if (isPlaying) {
+      audio.pause();
+    } else {
+      audio.play();
+    }
+    isPlaying = !isPlaying;
+  }
+
+  // Tentativa de autoplay ao interagir com a página
+  document.body.addEventListener("click", () => {
+    if (!isPlaying) {
+      audio.muted = false;
+      audio.play().then(() => {
+        isPlaying = true;
+      }).catch(err => {
+        console.log("Autoplay bloqueado pelo navegador");
+      });
+    }
+  }, { once: true });
+
+  // Você também pode tentar iniciar ao mover o mouse:
+  document.body.addEventListener("mousemove", () => {
+    if (!isPlaying) {
+      audio.muted = false;
+      audio.play().then(() => {
+        isPlaying = true;
+      }).catch(() => {});
+    }
+  }, { once: true });
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
