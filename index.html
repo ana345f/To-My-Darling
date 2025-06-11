@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel&display=swap" rel="stylesheet">
   <style>
-  
     * { box-sizing: border-box; }
 
     body {
@@ -18,79 +17,119 @@
     }
 
     h1 {
-      color: #4b1332;
+      color: #4b1313;
       text-align: center;
       margin-top: 20px;
-      text-shadow: 1px 1px 5px #b1516e;
+      text-shadow: 1px 1px 5px #4b1313;
     }
 
-@media (max-width: 1024px) {
-  .book {
-    width: 90vw;
-    height: 70vh;
-  }
+    .book {
+      position: relative;
+      width: 800px;
+      height: 800px;
+      perspective: 2000px;
+      margin: 30px auto 0;
+    }
 
-  .page img {
-    max-height: 60%;
-  }
+    .page {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      transform-origin: left center;
+      transition: transform 1s ease-in-out;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 20px;
+    }
 
-  .caption {
-    font-size: 1.1em;
-  }
+    .page.flipped {
+      transform: rotateY(-180deg);
+    }
 
-  .cover h2 {
-    font-size: 2em;
-  }
+    .cover {
+      background: url('https://www.transparenttextures.com/patterns/wood-pattern.png'), #6b1717;
+      background-size: cover;
+      color: gold;
+      flex-direction: column;
+      text-align: center;
+      font-family: 'Cinzel', serif;
+      border: 5px solid gold;
+    }
 
-  .cover p {
-    font-size: 1em;
-  }
-}
+    .cover h2 {
+      font-size: 3em;
+      margin: 0;
+      text-shadow: 1px 1px 3px rgb(0, 0, 0);
+    }
 
-@media (max-width: 600px) {
-  h1 {
-    font-size: 1.5em;
-    margin-top: 10px;
-  }
+    .cover p {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
 
-  .book {
-    width: 95vw;
-    height: 65vh;
-  }
+    .back-cover {
+      background: linear-gradient(to bottom, #741414, #b13a3a);
+      color: #ffffff;
+      font-family: 'Cinzel', serif;
+      text-align: center;
+    }
 
-  .page {
-    padding: 10px;
-  }
+    .page img {
+      max-width: 100%;
+      max-height: 80%;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
 
-  .page img {
-    max-height: 50%;
-  }
+    .caption {
+      margin-top: 15px;
+      font-size: 1.3em;
+      text-align: center;
+      color: #414040;
+      font-style: italic;
+    }
 
-  .caption {
-    font-size: 1em;
-  }
+    .controls {
+      text-align: center;
+      margin-top: 20px;
+    }
 
-  .cover h2 {
-    font-size: 1.5em;
-  }
+    button {
+      padding: 10px 20px;
+      border-radius: 30px;
+      border: none;
+      background-color: #ffffffaa;
+      cursor: pointer;
+      font-weight: bold;
+      margin: 0 10px;
+      transition: 0.3s;
+    }
 
-  .cover p {
-    font-size: 0.9em;
-  }
+    button:hover {
+      background-color: #fff;
+    }
 
-  .controls button {
-    font-size: 0.9em;
-    padding: 8px 15px;
-    margin: 5px;
-  }
-
-  .audio-controls {
-    top: 10px;
-    right: 10px;
-    font-size: 0.8em;
-    padding: 6px 12px;
-  }
-}
+    .audio-controls {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 0.9em;
+      backdrop-filter: blur(5px);
+    }
 
     .heart {
       position: fixed;
@@ -173,11 +212,11 @@
     </div>
         <div class="page">
       <img src="img/img6.jpeg" alt="foto 6" />
-      <div class="caption">"Me perdi nas ondas dos seus cabelos."</div>
+      <div class="caption">"Nosso amor é minha história favorita."</div>
     </div>
         <div class="page">
       <img src="img/img7.jpeg" alt="foto 7" />
-      <div class="caption">"Sua beleza faz meu coração acelerar."</div>
+      <div class="caption">"Nosso amor é minha história favorita."</div>
     </div>
 
     <!-- CONTRACAPA -->
@@ -249,11 +288,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
