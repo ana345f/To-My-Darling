@@ -17,16 +17,16 @@
     }
 
     h1 {
-      color: #4b1313;
+      color: #4b1332;
       text-align: center;
       margin-top: 20px;
-      text-shadow: 1px 1px 5px #4b1313;
+      text-shadow: 1px 1px 5px #b1516e;
     }
 
     .book {
       position: relative;
-      width: 800px;
-      height: 800px;
+      width: 1000px;
+      height: 650px;
       perspective: 2000px;
       margin: 30px auto 0;
     }
@@ -66,7 +66,7 @@
     .cover h2 {
       font-size: 3em;
       margin: 0;
-      text-shadow: 1px 1px 3px rgb(0, 0, 0);
+      text-shadow: 1px 1px 3px black;
     }
 
     .cover p {
@@ -75,8 +75,8 @@
     }
 
     .back-cover {
-      background: linear-gradient(to bottom, #741414, #b13a3a);
-      color: #ffffff;
+      background: linear-gradient(to bottom, #bf6e8d, #f7d0eb);
+      color: #4b132a;
       font-family: 'Cinzel', serif;
       text-align: center;
     }
@@ -93,7 +93,7 @@
       margin-top: 15px;
       font-size: 1.3em;
       text-align: center;
-      color: #414040;
+      color: #333;
       font-style: italic;
     }
 
@@ -150,15 +150,8 @@
       border-radius: 50%;
     }
 
-    .heart::before {
-      top: -10px;
-      left: 0;
-    }
-
-    .heart::after {
-      left: -10px;
-      top: 0;
-    }
+    .heart::before { top: -10px; left: 0; }
+    .heart::after  { left: -10px; top: 0; }
 
     @keyframes float {
       0% {
@@ -170,6 +163,75 @@
         opacity: 0.8;
       }
     }
+
+    /* RESPONSIVIDADE */
+    @media (max-width: 1024px) {
+      .book {
+        width: 90vw;
+        height: 70vh;
+      }
+
+      .page img {
+        max-height: 60%;
+      }
+
+      .caption {
+        font-size: 1.1em;
+      }
+
+      .cover h2 {
+        font-size: 2.2em;
+      }
+
+      .cover p {
+        font-size: 1em;
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.4em;
+        margin-top: 15px;
+      }
+
+      .book {
+        width: 95vw;
+        height: 60vh;
+      }
+
+      .page {
+        padding: 10px;
+      }
+
+      .page img {
+        max-height: 50%;
+      }
+
+      .caption {
+        font-size: 1em;
+      }
+
+      .cover h2 {
+        font-size: 1.5em;
+      }
+
+      .cover p {
+        font-size: 0.9em;
+      }
+
+      .controls button {
+        font-size: 0.9em;
+        padding: 8px 12px;
+        margin: 5px;
+      }
+
+      .audio-controls {
+        top: 10px;
+        right: 10px;
+        font-size: 0.8em;
+        padding: 6px 12px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -177,11 +239,10 @@
 
   <button class="audio-controls" onclick="toggleAudio()">🎵 Música</button>
   <audio id="love-audio" loop>
-    <source src="musica/I Wanna Be Yours.mp3" type="audio/mp3" />
+    <source src="I Wanna Be Yours.mp3" type="audio/mp3" />
   </audio>
 
   <div class="book" id="book">
-    <!-- CAPA -->
     <div class="page cover">
       <div>
         <h2>Livro de Amor 💖</h2>
@@ -189,37 +250,14 @@
       </div>
     </div>
 
-    <!-- Páginas com imagens e frases -->
-    <div class="page">
-      <img src="img/img1.jpeg" alt="foto 1" />
-      <div class="caption">"Te encontrei e o mundo ficou mais bonito."</div>
-    </div>
-    <div class="page">
-      <img src="img/img2.jpeg" alt="foto 2" />
-      <div class="caption">"Com você, cada dia é um novo capítulo de amor."</div>
-    </div>
-    <div class="page">
-      <img src="img/img3.jpeg" alt="foto 3" />
-      <div class="caption">"Seu sorriso é meu lugar favorito."</div>
-    </div>
-    <div class="page">
-      <img src="img/img4.jpeg" alt="foto 4" />
-      <div class="caption">"Em teus braços, encontrei meu lar."</div>
-    </div>
-    <div class="page">
-      <img src="img/img5.jpeg" alt="foto 5" />
-      <div class="caption">"Nosso amor é minha história favorita."</div>
-    </div>
-        <div class="page">
-      <img src="img/img6.jpeg" alt="foto 6" />
-      <div class="caption">"Nosso amor é minha história favorita."</div>
-    </div>
-        <div class="page">
-      <img src="img/img7.jpeg" alt="foto 7" />
-      <div class="caption">"Nosso amor é minha história favorita."</div>
-    </div>
+    <div class="page"><img src="img1.jpeg" alt="foto 1" /><div class="caption">"Te encontrei e o mundo ficou mais bonito."</div></div>
+    <div class="page"><img src="img2.jpeg" alt="foto 2" /><div class="caption">"Com você, cada dia é um novo capítulo de amor."</div></div>
+    <div class="page"><img src="img3.jpeg" alt="foto 3" /><div class="caption">"Seu sorriso é meu lugar favorito."</div></div>
+    <div class="page"><img src="img4.jpeg" alt="foto 4" /><div class="caption">"Em teus braços, encontrei meu lar."</div></div>
+    <div class="page"><img src="img5.jpeg" alt="foto 5" /><div class="caption">"Nosso amor é minha história favorita."</div></div>
+    <div class="page"><img src="img6.jpeg" alt="foto 6" /><div class="caption">"Nosso amor é minha história favorita."</div></div>
+    <div class="page"><img src="img7.jpeg" alt="foto 7" /><div class="caption">"Nosso amor é minha história favorita."</div></div>
 
-    <!-- CONTRACAPA -->
     <div class="page back-cover">
       <div>
         <h2>The end 💌</h2>
@@ -233,7 +271,6 @@
     <button onclick="nextPage()">Avançar ➡️</button>
   </div>
 
-  <!-- Corações flutuando -->
   <script>
     function createHearts() {
       const heart = document.createElement('div');
@@ -244,10 +281,7 @@
       setTimeout(() => heart.remove(), 6000);
     }
     setInterval(createHearts, 300);
-  </script>
 
-  <!-- Livro e Música -->
-  <script>
     const pages = document.querySelectorAll(".page");
     let currentPage = -1;
 
@@ -288,3 +322,4 @@
   </script>
 </body>
 </html>
+
